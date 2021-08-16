@@ -1,0 +1,31 @@
+*, html {
+    font-family:  "DejaVu Sans Mono",
+                 ui-monospace,
+                 Menlo,
+                 Monaco,
+                 "Cascadia Mono",
+                 "Segoe UI Mono",
+                 "Courier New",
+                 monospace, monospace;
+
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+
+    margin: 0;
+
+    font-size: 12px;
+    color: #beb7a0;
+
+    overflow: hidden;
+  }
+
+  body {
+    background-color: #302e2c;
+  }
+
+
+  pre {
+      top: 0;
+      left: 0;
+      position: absolute;
+  }
