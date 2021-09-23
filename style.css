@@ -1,12 +1,15 @@
 *, html {
-    font-family:  "DejaVu Sans Mono",
-                 ui-monospace,
-                 Menlo,
-                 Monaco,
-                 "Cascadia Mono",
-                 "Segoe UI Mono",
-                 "Courier New",
-                 monospace, monospace;
+  font-family:  "DejaVu Sans Mono",
+                ui-monospace,
+                Menlo,
+                Monaco,
+                "Cascadia Mono",
+                "Segoe UI Mono",
+                "Courier New",
+                monospace, monospace;
+
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -14,23 +17,90 @@
   -ms-user-select: none;
   user-select: none;
 
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-
-  margin: 0;
-
-  font-size: 12px;
-  color: #beb7a0;
   overflow: hidden;
+  margin: 0;
+  color: #e3dabe;
 }
+
+:root { --size: 13px; }
 
 body {
   background-color: #302e2c;
 }
 
-
-pre {
-  top: 0;
-  left: 0;
-  position: fixed;
+@keyframes fadein {
+  from { color: #00000000; }
 }
+
+#helper_block {
+  width: var(--size);
+  height: var(--size);
+}
+
+#board {
+  overflow: visible;
+  position: absolute;
+  cursor: none;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#board.generating {
+  width: 90vw;
+  height: 90vh;
+  max-width: 1000px;
+  max-height: 1000px;
+}
+
+@media (orientation: portrait) {
+  #board.generating {
+    height: 80vh;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: inherit;
+
+  width: 100%;
+  height: var(--size);
+}
+
+.block {
+  box-sizing: content-box;
+  display: inline-table;
+  overflow: inherit;
+
+  width: var(--size);
+  height: var(--size);
+}
+
+p {
+  animation-name: fadein;
+  animation-duration: 1s;
+  
+  font-size: xx-small;
+  text-align: center;
+  overflow: inherit;
+}
+
+@media (hover) {
+  .block:hover {
+    box-sizing: unset;
+
+    padding: calc(var(--size) / 5);
+    margin: calc(-1 * var(--size) / 5);
+    background-color: #e3dabe20;
+  }
+}
+
+.white      { color: #e3dabe; }
+.light_grey { color: #e3dabeb0; }
+.grey       { color: #e3dabe70; }
+.dark_grey  { color: #e3dabe50; }
+.red        { color: #ffa3a3; }
+.blue       { color: #a9ddfa; }
