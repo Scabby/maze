@@ -194,18 +194,12 @@ window.addEventListener("touchmove", (e) => {
 
     let absY        = Math.abs(deltaY)
     let absX        = Math.abs(deltaX)
-
     let isYSwipe    = absY > absX
 
-    let oneIfLess = (n) => {
-        if(n < 1)   { return 1 }
-        else        { return n }
-    }
-
     if(isYSwipe) {
-        distance = absY / oneIfLess(absX - swipeRatioForgiveness)
+        distance = absY / absX
     } else {
-        distance = absX / oneIfLess(absY - swipeRatioForgiveness)
+        distance = absX / absY
     }
     
     let time = (maxSwipeDistance - distance) * swipeFriction
@@ -301,7 +295,6 @@ playerIsMoving          = false
 stopLoopTouch           = true
 swipeFriction           = 2
 maxSwipeDistance        = 100
-swipeRatioForgiveness   = 20
 
 minAnimationTime    = 70
 maxAnimationTime    = 250
